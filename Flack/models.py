@@ -5,13 +5,14 @@ from flask import abort, g
 from werkzeug.security import generate_password_hash, check_password_hash
 from markdown import markdown
 import bleach
+# screen scraper
 from bs4 import BeautifulSoup
 import requests
 # Prevent cyclical import of each other. Will change in later versions
 try:
 	from __main__ import db
 except ImportError:
-	from .flack import db
+	from . import db
 # url_for: generates an endpoint to the given endpoint
 from .utils import timestamp, url_for
 
