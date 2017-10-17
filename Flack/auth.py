@@ -2,7 +2,7 @@ from flask import g, jsonify
 from flask_httpauth import HTTPBasicAuth, HTTPTokenAuth
 
 from . import db
-from .models import User
+from .models.User import User
 
 # Authentication objects for user/pass auth, token auth, and
 # token optional auth that is used for open endpoints

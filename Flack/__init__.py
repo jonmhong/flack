@@ -10,7 +10,7 @@ from config import config
 db = SQLAlchemy()
 bootstrap = Bootstrap()
 
-from . import models
+from .models import models
 
 # this is the factory
 def create_app(config_name=None):

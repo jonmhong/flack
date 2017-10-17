@@ -13,3 +13,4 @@ def add_request():
 
 def requests_per_second():
 	return len(request_stats) / current_app.config['REQUEST_STATS_WINDOW']
+	

@@ -1,13 +1,14 @@
 import threading
 import time
 from flask import Blueprint, render_template, jsonify_current_app
-from .models import User
+from .models.User import User
 from . import db, stats
 
 
 main = Blueprint('main', __name__)
 
 
+# register this function to run before the very first request is handled
 @main.before_app_first_request
 def before_first_request():
 	"""Start a background thread that looks for users that leave."""
@@ -23,12 +24,13 @@ def before_first_request():
 			args=[current_app._get_current_object()])
 		thread.start()
 
+
+# register this function to run before each request
 @main.before_request
 def before_request():
 	"""Update requests per second stats."""
 	stats.add_request()
 
-# Routes
 
 @main.route('/')
 def index():

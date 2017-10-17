@@ -2,7 +2,7 @@ from flask import request, abort, jsonify, g
 
 from .. import db
 from ..auth import basic_auth, token_auth, token_optional_auth
-from ..models import Message
+from ..models.Messages import Message
 from ..utils import timestamp, url_for
 from . import api
 
